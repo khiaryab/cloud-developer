@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
@@ -26,6 +26,39 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   //    image_url: URL of a publicly accessible image
   // RETURNS
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
+
+  app.get('/filteredimage', async (req: Request, res: Response) => {
+    // get image_url query
+    let { image_url }: any = req.query;
+
+    // 1. validate the image_url query
+    if ( !image_url ) {
+      return res.status(400)
+                .send(`image_url is required`);
+    }
+
+    // 2. call filterImageFromURL(image_url) to filter the image
+    const filteredpath: string = await filterImageFromURL(image_url);
+
+    // validate that image_url points to an existing image URL
+    if ( filteredpath == "" ) {
+      return res.status(404)
+                .send('image URL (' + image_url + ') NOT found');
+    }
+
+    // 3. send the resulting file in the response
+    res.status(200).sendFile(filteredpath, (err: Error) => {
+      // 4. deletes any files on the server on finish of the response
+      deleteLocalFiles([filteredpath]);
+      // catch any errors occured during sending image
+      if (err) {
+        console.log('error sending filtered image!!');
+        console.log(err);
+        return res.status(500)
+                .send({ error: true, message: 'Unable to send filtered image!' });
+      }
+    });
+  });
 
   /**************************************************************************** */
 
