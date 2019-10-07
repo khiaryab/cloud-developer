@@ -1,5 +1,16 @@
 # Udagram Image Filtering Microservice
 
+## Project Submission Requirements
+
+### My Git Repository for the project
+https://github.com/khiaryab/cloud-developer
+
+### The link to the endpoint URL for the running elastic beanstalk deployment
+image-filter-service-dev.us-east-2.elasticbeanstalk.com
+
+### An example of a valid GET request to our endpoint
+http://image-filter-service-dev.us-east-2.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg
+
 ## Tasks
 
 ### Setup Node Environment
