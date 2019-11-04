@@ -7,7 +7,9 @@
 4. push the created image to docker hub `docker push DockerHubName/imageName`
 
 > DockerHubName: Your username on docker hub. In my case (khiaryab)
+
 > imageName: The image name in which to refered to on docker hub.
+
 > Example for the feed service, the image would be named as -> (khiaryab/udacity-restapi-feed)
 
 ## Configure And Deploy The Services
@@ -27,6 +29,7 @@ Assuming the cluster is already created and up running
 6. App should be running and can be tested from browser
 
 > In case you needed to debug one the pods that are not running well, the following commands might help
+
 `kubectl logs podName`
 `kubectl logs --follow podName`
 `kubectl get all`
