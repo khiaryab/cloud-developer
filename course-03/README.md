@@ -1,3 +1,7 @@
+# Project Related Resources
+1. (travis-ci-screenshots) folder contains a screenshots of builds on configured Travis CI
+2. All images are at Docker Hub: https://hub.docker.com/u/khiaryab
+
 # Instructions On How To Deploy The Project
 
 ## For Each Service
@@ -34,7 +38,3 @@ Assuming the cluster is already created and up running
 `kubectl logs --follow podName`
 `kubectl get all`
 `kubectl describe deployments/backend-feed`
-
-# Project Related Resources
-1. (travis-ci-screenshots) folder contains a screenshots of builds on configured Travis CI
-2. All images are at Docker Hub: https://hub.docker.com/u/khiaryab
