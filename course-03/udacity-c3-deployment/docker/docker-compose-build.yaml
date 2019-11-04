@@ -7,12 +7,12 @@ services:
   backend_user:
     build:
       context: ../../udacity-c3-restapi-user
-    image: khiaryab/udacity-restapi-user
+    image: khiaryab/udacity-restapi-user:v1
   backend_feed:
     build:
       context: ../../udacity-c3-restapi-feed  
-    image: khiaryab/udacity-restapi-feed
+    image: khiaryab/udacity-restapi-feed:v5
   frontend:
     build:
       context: ../../udacity-c3-frontend  
-    image: khiaryab/udacity-frontend:local
+    image: khiaryab/udacity-frontend
