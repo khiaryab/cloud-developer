@@ -1,5 +1,5 @@
 service:
-  name: serverless-udagram-app
+  name: serverless-udagram-app2
 
 plugins:
   - serverless-webpack
@@ -11,16 +11,16 @@ provider:
   runtime: nodejs8.10
 
   stage: ${opt:stage, 'dev'}
-  region: ${opt:region, 'us-east-1'}
+  region: ${opt:region, 'us-east-2'}
 
   environment:
     GROUPS_TABLE: Groups-${self:provider.stage}
     IMAGES_TABLE: Images-${self:provider.stage}
     IMAGE_ID_INDEX: ImageIdIndex
     CONNECTIONS_TABLE: Connections-${self:provider.stage}
-    IMAGES_S3_BUCKET: serverless-udagram-images-${self:provider.stage}
+    IMAGES_S3_BUCKET: serverless-udagram-images-a1b1k99-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
-    THUMBNAILS_S3_BUCKET: serverless-udagram-thumbnail-${self:provider.stage}
+    THUMBNAILS_S3_BUCKET: serverless-udagram-thumbnail-a1b1k99-${self:provider.stage}
     AUTH_0_SECRET_ID: Auth0Secret-${self:provider.stage}
     AUTH_0_SECRET_FIELD: auth0Secret
 
