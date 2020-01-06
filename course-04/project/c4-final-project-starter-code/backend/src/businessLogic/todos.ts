@@ -3,8 +3,10 @@ import * as uuid from 'uuid'
 import { TodoItem } from '../models/TodoItem'
 import { TodoUpdate } from '../models/TodoUpdate'
 import { TodosAccess } from '../dataLayer/todosAccess'
-import { CreateTodoRequest } from '../requests/CreateTODORequest'
+import { CreateTodoRequest } from '../requests/CreateTodoRequest'
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
+
+const todoBucket = process.env.ATTACHMENT_S3_BUCKET
 
 const todosAccess = new TodosAccess()
 
@@ -26,7 +28,8 @@ export async function createTodo(createTodoRequest: CreateTodoRequest, userId: s
     createdAt: new Date().toISOString(),
     name: createTodoRequest.name,
     dueDate: createTodoRequest.dueDate,
-    done: false
+    done: false,
+    attachmentUrl: `https://${todoBucket}.s3.amazonaws.com/${itemId}`
   })
 }
 
